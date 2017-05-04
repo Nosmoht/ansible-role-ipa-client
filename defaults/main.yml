@@ -1,0 +1,9 @@
+---
+ipa_client_package_state: present
+ipa_client_domain: example.com
+ipa_client_server: ipa-server.example.com
+ipa_client_realm: EXAMPLE.COM
+ipa_client_hostname: '{{ ansible_nodename }}'
+ipa_client_mkhomedir: true
+ipa_client_admin_user: admin
+ipa_client_admin_pass: t0ps3cr3t

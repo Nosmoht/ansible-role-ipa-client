@@ -1,0 +1,6 @@
+---
+- name: Ensure package
+  package:
+    name: '{{ item }}'
+    state: '{{ ipa_client_package_state }}'
+  with_items: '{{ ipa_client_package_names }}'

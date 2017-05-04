@@ -1,0 +1,14 @@
+---
+- name: Install
+  shell: '/usr/sbin/ipa-client-install \
+    --unattended \
+    --domain {{ ipa_client_domain }} \
+    --server {{ ipa_client_server }} \
+    --realm {{ ipa_client_realm }} \
+    --hostname {{ ipa_client_hostname }} \
+    {{ "--mkhomedir" if ipa_client_mkhomedir | bool else "" }} \
+    -p {{ ipa_client_admin_user }}@{{ ipa_client_realm }} \
+    -w {{ ipa_client_admin_pass }}'
+  register: ipa_client_install_register
+  failed_when: ipa_client_install_register.rc != 0 and "IPA client is already configured on this system" not in ipa_client_install_register.stderr
+  changed_when: ipa_client_install_register.rc == 0

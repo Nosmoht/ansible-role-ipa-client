@@ -1,0 +1,4 @@
+---
+ipa_client_package_names:
+- ipa-client
+ipa_client_service_names: []
